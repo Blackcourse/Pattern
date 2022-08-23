@@ -38,7 +38,7 @@ public class SearchPageObject extends MainPageObject {
     }
 
     public void typeSearchLine(String search_line) {
-        this.waitForElementAndSendKeys(By.xpath(SEARCH_INPUT), search_line, "Cannot find and type into search input", 5);
+        this.waitForElementAndSendKeys(By.xpath(SEARCH_INPUT), search_line, "Cannot find and type into search input", 15);
     }
 
     public void waitForSearchResult(String substring) {
@@ -70,4 +70,10 @@ public class SearchPageObject extends MainPageObject {
         this.waitForElementNotPresent(By.id(SEARCH_CANCEL_BUTTON), "I find search cancel button", 5);
 
     }
+    public void SearchInputafterDelete() {
+        this.waitForElementPresent(By.xpath(SEARCH_INPUT), "Cannot find search input after delete search result");
+    }
+
+
+
 }

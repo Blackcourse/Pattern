@@ -54,6 +54,14 @@ public class MyListPageObject extends MainPageObject{
         this.waitForArticleToDissapearByTitle(article_title);
 
     }
+    public void waitForArtToAppearAfterDelete ()
+    {
+        this.waitForElementPresent(By.xpath("//*[contains (@text,'Kotlin')]"),"Cant find saved article by title");
+    }
+    public void clickOnSavedPage ()
+    {
+        this.waitForElementAndClick(By.xpath ("//*[contains (@text,'Kotlin')]"),"Cant click on saved page",10);
+    }
 
 
 

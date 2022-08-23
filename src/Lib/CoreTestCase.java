@@ -6,14 +6,10 @@ import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 
-
     public class CoreTestCase extends TestCase {
 
         public AppiumDriver driver;
         private static String AppiumURL= "http://0.0.0.0:4723/wd/hub";
-
-        public CoreTestCase(AppiumDriver driver) {
-        }
 
         @Override
         protected void setUp() throws Exception {

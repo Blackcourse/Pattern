@@ -14,8 +14,10 @@ public class ArticlePageObject extends MainPageObject {
             OPTIONS_ADD_TO_MY_LIST_BUTTON = "//*[@text = 'Add to reading list']",
             ADD_TO_MY_LIST_OVERLAY = "org.wikipedia:id/onboarding_button",
             MY_LIST_BUTTON = "org.wikipedia:id/text_input",
+            MY_SAVED_LIST = "//*[@resource-id ='org.wikipedia:id/item_title'][@text='Learning programming']",
             MY_LIST_OK_BUTTON = "//*[@text='OK']",
             CLOSE_ARTICLE_BUTTON = "//android.widget.ImageButton[@content-desc='Navigate up']";
+
 
 
     public ArticlePageObject(AppiumDriver driver) {
@@ -25,6 +27,15 @@ public class ArticlePageObject extends MainPageObject {
     {
         return this.waitForElementPresent(By.id(TITLE),"Cannot find article title on page",15);
     }
+    public WebElement waitForOptionsToMyListElement ()
+    {
+        return this.waitForElementPresent(By.id(OPTIONS_ADD_TO_MY_LIST_BUTTON),"Cannot find article title on page",15);
+    }
+    public WebElement waitForOptionsToMyListElementJava ()
+    {
+        return this.waitForElementPresent(By.id(OPTIONS_ADD_TO_MY_LIST_BUTTON),"Cannot find article title on page",15);
+    }
+
     public String getArticleTitle ()
     {
         WebElement title_element = waitForTitleElement();
@@ -77,14 +88,36 @@ public class ArticlePageObject extends MainPageObject {
                 5
 
         );
+
     }
-    public void closeArticle (){
+    public void clickonMyList (String name_of_folder) {
+
+            this.waitForElementAndClick(
+                    By.xpath(OPTIONS_BUTTON),
+                    "Cannot find button to open article",
+                    5
+            );
+            this.waitForElementAndClick(
+                    By.xpath(OPTIONS_ADD_TO_MY_LIST_BUTTON),
+                    "Cannot find option to add article to reading list",
+                    5
+
+            );
+            this.waitForElementAndClick(
+                    By.xpath(MY_SAVED_LIST),
+                    "Cannot find option to add article to reading list",
+                    5
+            );
+
+    }
+    public void closeArticle () {
         this.waitForElementAndClick(
                 By.xpath(CLOSE_ARTICLE_BUTTON),
                 "Cannot close article, cannot find X",
                 5
         );
     }
+
 
 
 
